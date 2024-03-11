@@ -1,28 +1,35 @@
-import { App } from "./todo";
+import { App } from "./logic";
 
-const jsonData = [
-    {
-        "title": "test-title",
-        "description": "test-description",
-        "dueDate": "test-due-date",
-        "priority": "test-priority"
-    },
+const data = [
+  {
+    title: "title-1-1",
+    description: "description-1-1",
+    dueDate: "date-1-1",
+    priority: "priority-1-1",
+  },
 
-    {
-        "title": "test-title-2",
-        "description": "test-description-2",
-        "dueDate": "test-due-date-2",
-        "priority": "test-priority-2"
-    },
+  {
+    title: "title-1-2",
+    description: "description-1-2",
+    dueDate: "date-1-2",
+    priority: "priority-1-2",
+  },
 
-    {
-        "title": "test-title-3",
-        "description": "test-description-3",
-        "dueDate": "test-due-date-3",
-        "priority": "test-priority-3"
-    },
+  {
+    title: "title-2-1",
+    description: "description-2-1",
+    dueDate: "date-2-1",
+    priority: "priority-2-1",
+  },
+
+  {
+    title: "title-2-2",
+    description: "description-2-2",
+    dueDate: "date-2-2",
+    priority: "priority-2-2",
+  },
 ];
 
-//localStorage.setItem('todos', JSON.stringify(jsonData));
+// localStorage.setItem("data", JSON.stringify(data));
 
 const app = new App();
