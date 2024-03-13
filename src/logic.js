@@ -1,61 +1,45 @@
-class App {
-  constructor() {
-    this.storage = new Storage();
-    this.storage.deleteItem(0);
-    this.storage.saveChanges();
-  }
-
-  createTodo() {
-    const test = new Todo(
-      "Clean room",
-      "Need to buy cleaner",
-      "Medium",
-      "Home",
-      "15-03-2024"
-    );
-
-    this.storage.addItem(test);
-    this.storage.saveChanges();
-  }
-}
-
 class Todo {
-  // all these really necessary?
-  constructor(title, description, priority, category, dueDate) {
+  constructor(title) {
     this.title = title;
-    this.description = description;
-    this.priority = priority;
-    this.category = category;
-    this.dueDate = dueDate;
+    this.description;
+    this.priority;
+    this.category;
+    this.dueDate;
     this.complete = false;
   }
 }
 
-class Storage {
+class Data {
   constructor() {
-    JSON.parse(localStorage.getItem("data")) === null
-      ? (this.data = [])
-      : (this.data = this.getData());
+    this.storage = new Storage();
+    this.data = this.storage.getData();
   }
 
-  getData() {
-    // what if no data is present?
-    return JSON.parse(localStorage.getItem("data"));
+  addItem(item) {
+    this.data.push(item);
   }
 
-  addItem(todo) {
-    this.data.push(todo);
+  editItem(index) {
+
   }
 
   deleteItem(index) {
     this.data.splice(index, 1);
   }
+}
 
-  saveChanges() {
-    localStorage.setItem("data", JSON.stringify(this.data));
+class Storage {
+  getData() {
+    if (!JSON.parse(localStorage.getItem("data") === null)) {
+      return JSON.parse(localStorage.getItem("data"));
+    } else {
+      return [];
+    }
+  }
+
+  saveChanges(input) {
+    localStorage.setItem("data", JSON.stringify(input));
   }
 }
 
-export { App };
-
-// add edit function
+export { Todo, Data };
