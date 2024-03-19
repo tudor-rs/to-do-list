@@ -1,5 +1,7 @@
 * {
   outline: black solid 1px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -7,7 +9,60 @@ body {
   flex-direction: row;
 }
 
+nav {
+  width: 30vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 30vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+content {
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.to-do-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  height: auto;
+  align-items: center;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50vw;
+  height: 5vh;
+}
+
+.todo > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-todo-button {
+  width: 5vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
+  width: 50vw;
 }
