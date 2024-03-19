@@ -4,6 +4,9 @@ class Data {
   constructor() {
     this.storage = new Storage();
     this.data = this.storage.get();
+    for (let i = 0; i < this.data.length; i++) {
+      this.data[i].id = i;
+    }
   }
 
   getAllLabels() {

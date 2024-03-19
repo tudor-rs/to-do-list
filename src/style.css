@@ -53,6 +53,10 @@ content {
   align-items: center;
 }
 
+.todo > input[type="checkbox"] {
+  width: 5%;
+}
+
 .new-todo-button {
   width: 5vw;
   height: 5vh;
