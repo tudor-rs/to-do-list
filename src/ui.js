@@ -85,8 +85,14 @@ class Ui {
     const submit = document.createElement("button");
     submit.type = "button";
     submit.id = "form-submit-button";
-    submit.innerText = "Create";
+    submit.innerText = "Ok";
     form.appendChild(submit);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.id = "form-delete-button";
+    deleteButton.innerText = "Delete";
+    form.appendChild(deleteButton);
 
     return formContainer;
   }

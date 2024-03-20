@@ -5,6 +5,7 @@ const data = [
     dueDate: "01-04-2024",
     priority: "High",
     label: "None",
+    complete: true
   },
 
   {
@@ -13,6 +14,7 @@ const data = [
     dueDate: "14-03-2024",
     priority: "Medium",
     label: "None",
+    complete: true
   },
 
   {
@@ -21,6 +23,7 @@ const data = [
     dueDate: "23-04-2024",
     priority: "Medium",
     label: "Car",
+    complete: true
   },
 
   {
@@ -29,12 +32,13 @@ const data = [
     dueDate: "25-03-2024",
     priority: "Low",
     label: "Car",
+    complete: false
   },
 ];
 
 class Storage {
   constructor() {
-    localStorage.setItem("data", JSON.stringify(data));
+    // localStorage.setItem("data", JSON.stringify(data));
   }
 
   get() {

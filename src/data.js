@@ -7,6 +7,7 @@ class Data {
     for (let i = 0; i < this.data.length; i++) {
       this.data[i].id = i;
     }
+    this.labels = this.getAllLabels();
   }
 
   getAllLabels() {
@@ -33,15 +34,19 @@ class Data {
     this.storage.set(this.data);
   }
 
-  editItem(index) {}
+  editItem(index, item) {
+    this.data[index] = item;
+    this.storage.set(this.data);
+  }
 
   deleteItem(index) {
     this.data.splice(index, 1);
+    this.storage.set(this.data);
   }
 }
 
 class Todo {
-  constructor(title, description, priority, label, date) {
+  constructor(title, description, priority, label, date, complete) {
     this.title = title;
     this.description = description;
     this.priority = priority;

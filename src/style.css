@@ -53,8 +53,16 @@ content {
   align-items: center;
 }
 
+.todo > .todo-title {
+  width: 100%;
+}
+
 .todo > input[type="checkbox"] {
   width: 5%;
+}
+
+.complete {
+  text-decoration: line-through;
 }
 
 .new-todo-button {
@@ -69,4 +77,9 @@ form {
   display: flex;
   flex-direction: column;
   width: 50vw;
+}
+
+.error-container {
+  width: 70vw;
+  height: 5vh;
 }
