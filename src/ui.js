@@ -1,106 +1,59 @@
 class Ui {
   constructor() {}
 
-  createContainer() {
-    const container = document.createElement("div");
-    container.classList.add("container");
-    return container;
-  }
-
-  createSidebarButton() {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.classList.add("sidebar-button");
-    return button;
-  }
-
   createTodo() {
     const todo = document.createElement("div");
     todo.classList.add("todo");
     const title = document.createElement("div");
-    title.classList.add("todo-title");
     todo.appendChild(title);
+    title.classList.add("todo-title");
     const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
     todo.appendChild(checkbox);
+    checkbox.type = "checkbox";
     return todo;
   }
 
-  createNewTodoButton() {
+  createButton(innerText) {
     const button = document.createElement("div");
-    button.classList.add("new-todo-button");
-    button.innerText = "+";
+    button.innerText = innerText;
     return button;
   }
 
-  // not refactored:
-
-  createNewTodoForm() {
-    // container
-    const formContainer = document.createElement("div");
-    formContainer.classList.add("form-container");
-
-    // form
+  createForm() {
     const form = document.createElement("form");
     form.addEventListener("submit", function (event) {
       event.preventDefault();
     });
-    formContainer.appendChild(form);
+    return form;
+  }
 
-    // title
-    const title = document.createElement("input");
-    title.type = "text";
-    title.dataset.name = "title";
-    title.placeholder = "Title";
-    form.appendChild(title);
+  createTextInput() {
+    const input = document.createElement("input");
+    input.type = "text";
+    return input;
+  }
 
-    // description
-    const description = document.createElement("textarea");
-    description.dataset.name = "description";
-    description.placeholder = "Description";
-    form.appendChild(description);
+  createTextArea() {
+    const textArea = document.createElement("textarea");
+    return textArea;
+  }
 
-    // priority
-    const priority = document.createElement("select");
-    priority.dataset.name = "priority";
-    const options = ["Low", "Medium", "High"];
+  createSelect(arr) {
+    if (arr.length === 0) {
+      console.error("No options received for priority select input");
+      return;
+    }
+
+    const select = document.createElement("select");
+    const options = arr;
+
     for (let i = 0; i < options.length; i++) {
       const option = document.createElement("option");
       option.value = options[i];
       option.text = options[i];
-      priority.add(option);
+      select.add(option);
     }
-    form.appendChild(priority);
-
-    // label
-    const formLabelsContainer = document.createElement("div");
-    formLabelsContainer.classList.add("form-labels-container");
-    form.appendChild(formLabelsContainer);
-
-    // new label button
-    // close form button
-
-    // due date?
-
-    const submit = document.createElement("button");
-    submit.type = "button";
-    submit.id = "form-submit-button";
-    submit.innerText = "Ok";
-    form.appendChild(submit);
-
-    const deleteButton = document.createElement("button");
-    deleteButton.type = "button";
-    deleteButton.id = "form-delete-button";
-    deleteButton.innerText = "Delete";
-    form.appendChild(deleteButton);
-
-    return formContainer;
-  }
-
-  removeAllChildElements(element) {
-    while (element.firstChild) {
-      element.removeChild(element.firstChild);
-    }
+    return select;
   }
 }
 

@@ -3,45 +3,49 @@ import { Storage } from "./storage";
 class Data {
   constructor() {
     this.storage = new Storage();
-    this.data = this.storage.get();
-    for (let i = 0; i < this.data.length; i++) {
-      this.data[i].id = i;
+    this.todolist = this.storage.get();
+    for (let i = 0; i < this.todolist.length; i++) {
+      this.todolist[i].id = i;
     }
-    this.labels = this.getAllLabels();
   }
 
   getAllLabels() {
     const labelsSet = new Set();
-    this.data.forEach((todo) => {
+    this.todolist.forEach((todo) => {
       labelsSet.add(todo.label);
     });
     const labels = Array.from(labelsSet);
+    labels.sort();
     return labels;
   }
 
+  // unused
   filterByLabel(label) {
     const result = [];
-    for (let i = 0; i < this.data.length; i++) {
-      if (this.data[i].label === label) {
-        result.push(this.data[i]);
+    for (let i = 0; i < this.todolist.length; i++) {
+      if (this.todolist[i].label === label) {
+        result.push(this.todolist[i]);
       }
     }
     return result;
   }
 
   addItem(item) {
-    this.data.push(item);
-    this.storage.set(this.data);
+    if (item.label === "") {
+      item.label = "None";
+    }
+    this.todolist.push(item);
+    this.storage.set(this.todolist);
   }
 
   editItem(index, item) {
-    this.data[index] = item;
-    this.storage.set(this.data);
+    this.todolist[index] = item;
+    this.storage.set(this.todolist);
   }
 
   deleteItem(index) {
-    this.data.splice(index, 1);
-    this.storage.set(this.data);
+    this.todolist.splice(index, 1);
+    this.storage.set(this.todolist);
   }
 }
 
@@ -52,7 +56,7 @@ class Todo {
     this.priority = priority;
     this.label = label;
     this.date = date;
-    this.complete = false;
+    this.complete = complete;
   }
 }
 

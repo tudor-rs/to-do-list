@@ -38,7 +38,7 @@ const data = [
 
 class Storage {
   constructor() {
-    // localStorage.setItem("data", JSON.stringify(data));
+    localStorage.setItem("data", JSON.stringify(data));
   }
 
   get() {
